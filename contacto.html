@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto — Enzo Favio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="main-container">
+
+    <!-- HEADER -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">Mi Portfolio</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="contacto.html" class="active">Contacto</a></li>
+          <li><a href="https://github.com/enzocipher" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/enzo-favio-o-besso-93409b335" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <button class="menu-toggle">Menu</button>
+      </nav>
+    </header>
+
+    <!-- HERO CONTACTO -->
+    <section class="hero fade-in">
+      <h1>Contáctame <span>!</span></h1>
+      <p>Si tienes alguna idea, propuesta o proyecto en mente, escríbeme.</p>
+    </section>
+
+    <!-- FORMULARIO CON FORMSPREE -->
+    <section class="contact fade-in">
+      <h2>Formulario de contacto</h2>
+      <p>Puedes enviarme un mensaje directamente desde aquí:</p>
+
+      <!-- FORMULARIO DE FORMSPREE INTEGRADO -->
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/xblnkzza"
+        method="POST"
+      >
+        <label class="form-label">
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="Tu nombre" 
+            required
+          >
+        </label>
+      
+        <label class="form-label">
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Tu correo electrónico" 
+            required
+          >
+        </label>
+      
+        <label class="form-label">
+          <textarea 
+            name="message" 
+            placeholder="Tu mensaje" 
+            rows="5" 
+            required
+          ></textarea>
+        </label>
+      
+        <button type="submit" class="btn">Enviar mensaje</button>
+      </form>
+
+
+      <!-- BOTONES -->
+      <div class="contact-buttons">
+        <a href="mailto:enzocipher@gmail.com" class="btn">Escribirme por correo</a>
+        <a href="index.html" class="btn">Volver al inicio</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 Enzo Favio — Portafolio personal</p>
+    </footer>
+
+  </div>
+</body>
+</html>

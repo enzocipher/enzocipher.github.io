@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Página no encontrada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fde2e4, #f8edeb, #e8e8e4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #4b4453;
+      padding: 20px;
+      position: relative;
+    }
+
+    .not-found {
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: clamp(4rem, 15vw, 8rem);
+      color: #f7c9d6;
+      margin-bottom: 1rem;
+      text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+    }
+
+    p {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      margin-bottom: 2rem;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background: #f7c9d6;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(247, 201, 214, 0.4);
+      background: #f5b8c8;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 2rem 0 1rem;
+      color: #9a8c98;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 5rem;
+      }
+      
+      .btn {
+        padding: 10px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 4rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="not-found">
+    <div class="container">
+      <h1>404</h1>
+      <p>Lo que buscas ya no está o quizás nunca existió...</p>
+      <a href="index.html" class="btn">Volver al inicio</a>
+    </div>
+  </section>
+  
+  <footer>
+    <p>© 2025 Enzo Favio — Hecho con amor y prompts digo Café</p>
+  </footer>
+</body>
+</html>
