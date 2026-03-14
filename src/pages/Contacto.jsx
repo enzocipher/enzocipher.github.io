@@ -1,19 +1,62 @@
-import React from 'react'
+export default function Contacto() {
+  const channels = [
+    {
+      label: 'email',
+      icon: '✉',
+      value: 'enzocipher@gmail.com',
+      note: 'respuesta en ~24h',
+      href: 'mailto:enzocipher@gmail.com',
+      accent: '#E8593C',
+    },
+    {
+      label: 'github',
+      icon: '⌥',
+      value: 'enzocipher',
+      note: 'proyectos y repos',
+      href: 'https://github.com/enzocipher',
+      accent: '#b6a6ca',
+    },
+    {
+      label: 'hackthebox',
+      icon: '⬡',
+      value: 'enzocipher',
+      note: 'CTF · CJCA incoming',
+      href: 'https://app.hackthebox.com/users/2210479',
+      accent: '#9FE1CB',
+    },
+  ]
 
-export default function Contacto(){
   return (
-    <section className="contact fade-in">
-      <div style={{textAlign: 'center', marginBottom: '1rem'}}>
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{color: 'var(--color-accent)'}}>
-          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-        </svg>
+    <section className="c-contact fade-in">
+      <p className="c-eyebrow">~/contacto</p>
+      <h2 className="c-title">Hablemos</h2>
+      <p className="c-sub">Estoy disponible para proyectos, colaboraciones y consultas.</p>
+
+      <div className="c-grid">
+        {channels.map(ch => (
+          <a
+            key={ch.label}
+            className="c-channel"
+            href={ch.href}
+            target={ch.href.startsWith('http') ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            style={{ '--cl': ch.accent }}
+          >
+            <div className="c-ch-icon">{ch.icon}</div>
+            <span className="c-ch-label">{ch.label}</span>
+            <span className="c-ch-value">{ch.value}</span>
+            <span className="c-ch-note">{ch.note}</span>
+          </a>
+        ))}
       </div>
-      <h2>Contacto</h2>
-      <p>¿Te gustaría contactar conmigo?</p>
-      <p>
-        Estoy disponible de lunes a viernes.
-      </p>
-      <a href="mailto:enzocipher@gmail.com" className="btn">Escríbeme</a>
+
+      <div className="c-availability">
+        <div className="c-dot" />
+        <div className="c-avail-text">
+          <p>Disponible</p>
+          <p>lunes – viernes · Lima, Perú (GMT-5)</p>
+        </div>
+      </div>
     </section>
   )
 }

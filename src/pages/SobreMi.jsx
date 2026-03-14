@@ -1,146 +1,144 @@
-import React from 'react'
-
-export default function SobreMi(){
+export default function SobreMi() {
   return (
     <>
-
-      {/* HERO SOBRE MÍ */}
-      <section className="hero fade-in">
-        <h1>Sobre <span>Mí</span></h1>
-        <p>Conoce más sobre mi trayectoria, habilidades y pasiones</p>
+      {/* HERO */}
+      <section className="h-hero fade-in">
+        <div className="h-hero-bg" aria-hidden="true" />
+        <div className="h-hero-content">
+          <p className="h-mono">// <span>enzocipher</span>.github.io/sobre-mi</p>
+          <h1 className="h-name">
+            Sobre <span className="accent">Mí</span>
+          </h1>
+          <p className="h-desc">
+            Conoce más sobre mi trayectoria, habilidades y pasiones.
+          </p>
+        </div>
       </section>
 
-      {/* CONTENIDO PRINCIPAL */}
-      <section className="about-content fade-in">
-        
-        {/* EDITAR ESTA SECCIÓN ↓ */}
-        <div className="about-text">
-          <h2>Mi Historia</h2>
-          <p>
-            Mi nombre es Enzo Favio O'Besso, soy un entusiasta de la ciberseguridad. Desde joven, he tenido una gran pasión por la tecnología y la programación, lo que me llevó a elegir esta carrera.
-          </p>
+      {/* MI HISTORIA / EXPERIENCIA / OBJETIVOS */}
+      <div className="sm-text-block fade-in">
 
-          <h2>Mi Experiencia</h2>
+        <div className="sm-section">
+          <h3 className="sm-heading">Mi Historia</h3>
           <p>
-            Actualmente estudio en la Universidad Peruana de Ciencias Aplicada en ingeniería de Ciberseguridad.
-            Y constantemente participo en competencias CTF con mi equipo OverPwnZ. 
-          </p>
-
-          <h2>Mis Objetivos</h2>
-          <p>
-            Mi objetivo es seguir aprendiendo y creciendo en el campo de la ciberseguridad, y para el futuro me gustaría llegar a ser CISO (Chief Information Security Officer).
+            Mi nombre es Enzo Favio O'Besso, soy un entusiasta de la ciberseguridad.
+            Desde joven, he tenido una gran pasión por la tecnología y la programación,
+            lo que me llevó a elegir esta carrera.
           </p>
         </div>
 
-        {/* CERTIFICACIONES */}
-        <div className="skills-section">
-          <h2>Certificaciones</h2>
-          <div className="certifications-grid">
-            <div className="certification-card">
-              <h4>CJCA</h4>
-              <p>Certified Junior Cybersecurity Analyst</p>
+        <div className="sm-section">
+          <h3 className="sm-heading">Mi Experiencia</h3>
+          <p>
+            Actualmente estudio en la Universidad Peruana de Ciencias Aplicadas en
+            Ingeniería de Ciberseguridad, y constantemente participo en competencias
+            CTF con mi equipo <strong>OverPwnZ</strong>.
+          </p>
+        </div>
+
+        <div className="sm-section">
+          <h3 className="sm-heading">Mis Objetivos</h3>
+          <p>
+            Mi objetivo es seguir aprendiendo y creciendo en el campo de la
+            ciberseguridad. A futuro me gustaría llegar a ser
+            <strong> CISO</strong> (Chief Information Security Officer).
+          </p>
+        </div>
+
+      </div>
+
+      {/* CERTIFICACIONES */}
+      <div className="sm-block fade-in">
+        <div className="h-section-header">
+          <span className="h-section-title">Certificaciones</span>
+          <span className="h-section-sub">// en progreso</span>
+        </div>
+        <div className="sm-cert-grid">
+          {[
+            { code: 'CJCA', name: 'Certified Junior Cybersecurity Analyst' },
+            { code: 'CDSA', name: 'Certified Defensive Security Analyst' },
+            { code: 'CRTA', name: 'Certified Red Team Analyst' },
+          ].map(c => (
+            <div className="sm-cert-card" key={c.code}>
+              <span className="sm-cert-code">{c.code}</span>
+              <span className="sm-cert-name">{c.name}</span>
             </div>
-            <div className="certification-card">
-              <h4>CDSA</h4>
-              <p>Certified Defensive Security Analyst</p>
-            </div>
-            <div className="certification-card">
-              <h4>CRTA</h4>
-              <p>Certified Red Team Analyst</p>
-            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* HABILIDADES TÉCNICAS */}
+      <div className="sm-block fade-in">
+        <div className="h-section-header">
+          <span className="h-section-title">Habilidades Técnicas</span>
+          <span className="h-section-sub">// skills</span>
+        </div>
+        <div className="skills-grid">
+
+          <div className="skill-category">
+            <h3>Lenguajes</h3>
+            <ul>
+              <li>Rust <span className="sm-level">Intermedio</span></li>
+              <li>Python <span className="sm-level">Intermedio</span></li>
+              <li>Shell Scripting <span className="sm-level">Intermedio</span></li>
+              <li>JavaScript <span className="sm-level">Básico</span></li>
+              <li>C++ <span className="sm-level">Básico</span></li>
+              <li>TypeScript <span className="sm-level">Básico</span></li>
+              <li>Golang <span className="sm-level">Básico</span></li>
+              <li>Powershell <span className="sm-level">Básico</span></li>
+            </ul>
           </div>
-        </div>
 
-        {/* HABILIDADES TÉCNICAS */}
-        <div className="skills-section">
-          <h2>Habilidades Técnicas</h2>
-          <div className="skills-grid">
-            
-            <div className="skill-category">
-              <h3>Lenguajes</h3>
-              <ul>
-                <li>Rust (Intermedio)</li>
-                <li>Python (Intermedio)</li>
-                <li>JavaScript (Básico)</li>
-                <li>C++ (Básico)</li>
-                <li>TypeScript (Básico)</li>
-                <li>Golang (Básico)</li>
-                <li>Shell Scripting (Intermedio)</li>
-                <li>Powershell (Básico)</li>
-              </ul>
-            </div>
-
-            <div className="skill-category">
-              <h3>Ciberseguridad</h3>
-              <ul>
-                <li>Cybersecurity Assessment</li>
-                <li>Vulnerability Assessment</li>
-                <li>Vulnerability Scanning</li>
-                <li>Reconnaissance</li>
-                <li>Enumeration</li>
-                <li>Penetration Testing</li>
-                <li>Web Application Exploitation</li>
-                <li>System Exploitation</li>
-                <li>Post-Exploitation</li>
-                <li>Privilege Escalation</li>
-                <li>Remote File Inclusion (RFI)</li>
-                <li>Local File Inclusion (LFI)</li>
-                <li>Escaping Restricted Shells</li>
-                <li>Incident Handling</li>
-                <li>Intrusion Detection</li>
-                <li>Security Monitoring</li>
-                <li>Log Analysis</li>
-                <li>Network Traffic Analysis</li>
-                <li>Linux Fundamentals</li>
-                <li>Networking</li>
-                <li>Scripting</li>
-                <li>Data Protection</li>
-                <li>Encryption Techniques</li>
-                <li>Compliance Frameworks (GDPR, HIPAA)</li>
-                <li>Data Loss Prevention</li>
-                <li>Red Teaming</li>
-                <li>Adversary Simulation</li>
-                <li>Advanced Persistent Threats</li>
-                <li>Threat Hunting</li>
-              </ul>
-            </div>
-
-            <div className="skill-category">
-              <h3>Herramientas</h3>
-              <ul>
-                <li>Nmap</li>
-                <li>Metasploit Framework</li>
-                <li>Elastic Stack (ELK Stack)</li>
-                <li>Burp Suite</li>
-                <li>Caido</li>
-                <li>Gobuster</li>
-                <li>WFuzz</li>
-                <li>Hydra</li>
-                <li>John The Ripper</li>
-                <li>Nikto</li>
-                <li>Searchsploit</li>
-                <li>Kali Linux</li>
-                <li>Velociraptor</li>
-                <li>Eric Zimmerman's Tools</li>
-                <li>Splunk</li>
-                <li>Wazuh</li>
-                <li>Wireshark</li>
-                <li>Volatility</li>
-                <li>Autopsy</li>
-                <li>SQLMap</li>
-                <li>Binary ninja</li>
-                <li>YARA</li>
-              </ul>
-            </div>
-
+          <div className="skill-category">
+            <h3>Ciberseguridad</h3>
+            <ul>
+              <li>Penetration Testing</li>
+              <li>Vulnerability Assessment</li>
+              <li>Web Application Exploitation</li>
+              <li>System Exploitation</li>
+              <li>Privilege Escalation</li>
+              <li>Post-Exploitation</li>
+              <li>Red Teaming</li>
+              <li>Adversary Simulation</li>
+              <li>Threat Hunting</li>
+              <li>Incident Handling</li>
+              <li>Intrusion Detection</li>
+              <li>Log Analysis</li>
+              <li>Network Traffic Analysis</li>
+              <li>Security Monitoring</li>
+              <li>Encryption Techniques</li>
+              <li>Compliance (GDPR, HIPAA)</li>
+            </ul>
           </div>
+
+          <div className="skill-category">
+            <h3>Herramientas</h3>
+            <ul>
+              <li>Nmap</li>
+              <li>Metasploit Framework</li>
+              <li>Burp Suite</li>
+              <li>Caido</li>
+              <li>Wireshark</li>
+              <li>Elastic Stack (ELK)</li>
+              <li>Splunk</li>
+              <li>Wazuh</li>
+              <li>Volatility</li>
+              <li>Autopsy</li>
+              <li>YARA</li>
+              <li>SQLMap</li>
+              <li>Gobuster / WFuzz</li>
+              <li>Hydra / John The Ripper</li>
+              <li>Velociraptor</li>
+              <li>Binary Ninja</li>
+              <li>Kali Linux</li>
+            </ul>
+          </div>
+
         </div>
+      </div>
 
-      </section>
-
-      {/* FOOTER */}
       <footer>
-        <p>© 2025 Enzo Favio — Portafolio personal</p>  
+        <p>© 2025 Enzo Favio — Portafolio personal</p>
       </footer>
     </>
   )

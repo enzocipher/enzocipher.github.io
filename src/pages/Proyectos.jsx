@@ -1,58 +1,120 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-function formatDate(dateString){
-  try{ return new Date(dateString).toLocaleDateString('es-ES',{year:'numeric',month:'short',day:'numeric'}) }catch{ return dateString }
+const LANG_COLORS = {
+  Rust:       { bg: '#FFF1EE', text: '#7A2A1A', accent: '#E8593C' },
+  Python:     { bg: '#EFF6FF', text: '#1A3A6A', accent: '#3B82F6' },
+  JavaScript: { bg: '#FEFCE8', text: '#6B4900', accent: '#EAB308' },
+  TypeScript: { bg: '#EFF6FF', text: '#1A3A6A', accent: '#378ADD' },
+  C:          { bg: '#F0F4FF', text: '#1E2A5A', accent: '#534AB7' },
+  'C++':      { bg: '#F0F4FF', text: '#1E2A5A', accent: '#7F77DD' },
+  HTML:       { bg: '#FFF4EE', text: '#7A3010', accent: '#E85D24' },
+  CSS:        { bg: '#F0FAFF', text: '#0A4060', accent: '#1D9E75' },
+  Shell:      { bg: '#F0FFF4', text: '#0A3A20', accent: '#3B6D11' },
+  Go:         { bg: '#E8F8FF', text: '#0A3048', accent: '#185FA5' },
 }
 
-export default function Proyectos(){
+function formatDate(d) {
+  try {
+    return new Date(d).toLocaleDateString('es-ES', { year: 'numeric', month: 'short' })
+  } catch {
+    return ''
+  }
+}
+
+function LangBadge({ language }) {
+  const lang = language || 'otros'
+  const c = LANG_COLORS[language]
+  const style = c
+    ? { background: c.bg, color: c.text, borderColor: c.accent + '55' }
+    : {}
+  return <span className="proy-lang" style={style}>{lang}</span>
+}
+
+export default function Proyectos() {
   const [repos, setRepos] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [filter, setFilter] = useState('all')
 
-  useEffect(()=>{
+  useEffect(() => {
     let mounted = true
-    const url = 'https://api.github.com/users/enzocipher/repos?sort=updated&per_page=100'
-    fetch(url).then(r=>{
-      if(!r.ok) throw new Error('HTTP '+r.status)
-      return r.json()
-    }).then(data=>{ if(mounted){ setRepos(data.filter(r=>!r.fork)); setLoading(false) }}).catch(e=>{ if(mounted){ setError(e.message); setLoading(false) }})
-    return ()=> mounted = false
-  },[])
+    fetch('https://api.github.com/users/enzocipher/repos?sort=updated&per_page=100')
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json() })
+      .then(data => { if (mounted) { setRepos(data.filter(r => !r.fork)); setLoading(false) } })
+      .catch(e => { if (mounted) { setError(e.message); setLoading(false) } })
+    return () => { mounted = false }
+  }, [])
 
-  const languages = Array.from(new Set(repos.map(r=> (r.language||'Otros') ))).slice(0,10)
-  const visible = repos.filter(r=> filter==='all' || (r.language||'Otros')===filter)
+  const languages = Array.from(new Set(repos.map(r => r.language || 'otros'))).slice(0, 12)
+  const visible = filter === 'all' ? repos : repos.filter(r => (r.language || 'otros') === filter)
 
   return (
-    <>
+    <section className="proyectos fade-in">
+      <div className="proy-header">
+        <p className="proy-eyebrow">~/enzocipher/repos</p>
+        <h2 className="proy-title">Proyectos</h2>
+        <p className="proy-subtitle">Repositorios públicos en GitHub, sin forks.</p>
+      </div>
 
-      <section className="projects fade-in">
-        <h2>Proyectos</h2>
-        <div style={{display:'flex', justifyContent:'center', gap:'0.5rem', flexWrap:'wrap', marginBottom:12}}>
-          <button className={`btn ${filter==='all'? 'active':''}`} onClick={()=>setFilter('all')}>Todos</button>
-          {languages.map(lang=> (
-            <button key={lang} className={`btn ${filter===lang? 'active':''}`} onClick={()=>setFilter(lang)}>{lang}</button>
-          ))}
-        </div>
+      <div className="proy-filters">
+        <button className={`proy-chip${filter === 'all' ? ' active' : ''}`} onClick={() => setFilter('all')}>
+          todos
+        </button>
+        {languages.map(lang => (
+          <button
+            key={lang}
+            className={`proy-chip${filter === lang ? ' active' : ''}`}
+            onClick={() => setFilter(lang)}
+          >
+            {lang.toLowerCase()}
+          </button>
+        ))}
+      </div>
 
-        {loading && <div className="loading">Cargando repositorios...</div>}
-        {error && <div className="error">Error: {error}</div>}
+      {!loading && !error && (
+        <p className="proy-count">{visible.length} repositorio{visible.length !== 1 ? 's' : ''}</p>
+      )}
 
-        <div className="project-grid" id="projects-grid">
-          {visible.map(repo=> (
-            <div className="project-card" key={repo.id} data-language={repo.language||'Otros'}>
-              <h3>{repo.name}</h3>
-              <p>{repo.description || 'Sin descripción disponible.'}</p>
-              <div className="project-meta">
-                <span className={`language ${ (repo.language||'Otros').toLowerCase() }`}>{repo.language||'Varios'}</span>
-                <span className="updated">Actualizado: {formatDate(repo.updated_at)}</span>
-              </div>
-              <p><a href={repo.html_url} target="_blank" rel="noopener noreferrer">Ver repositorio</a></p>
+      {loading && (
+        <div className="proy-grid">
+          {[1, 2, 3].map(i => (
+            <div className="proy-card" key={i} style={{ gap: 12 }}>
+              <div className="proy-skeleton" style={{ height: 14, width: '60%' }} />
+              <div className="proy-skeleton" style={{ height: 11, width: '85%' }} />
+              <div className="proy-skeleton" style={{ height: 11, width: '65%' }} />
             </div>
           ))}
         </div>
-        <div style={{marginTop:20, textAlign:'center'}}><small>Si hay problemas de CORS, considera usar un proxy o servir datos desde un backend.</small></div>
-      </section>
-    </>
+      )}
+
+      {error && <p className="proy-error">// error: {error}</p>}
+
+      {!loading && !error && (
+        <div className="proy-grid">
+          {visible.length === 0 ? (
+            <p className="proy-empty">// sin resultados para este filtro</p>
+          ) : (
+            visible.map(repo => {
+              const accent = LANG_COLORS[repo.language]?.accent || 'var(--text-color)'
+              return (
+                <div className="proy-card" key={repo.id} style={{ '--accent': accent }}>
+                  <div className="proy-card-top">
+                    <a className="proy-name" href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                      {repo.name}
+                    </a>
+                    <span className="proy-ext">↗</span>
+                  </div>
+                  <p className="proy-desc">{repo.description || '// sin descripción'}</p>
+                  <div className="proy-footer">
+                    <LangBadge language={repo.language} />
+                    <span className="proy-date">{formatDate(repo.updated_at)}</span>
+                  </div>
+                </div>
+              )
+            })
+          )}
+        </div>
+      )}
+    </section>
   )
 }

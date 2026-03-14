@@ -1,0 +1,112 @@
+/* NotFound.css */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap');
+
+.nf-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.nf-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(128,128,128,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128,128,128,0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.nf-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.nf-number {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(7rem, 20vw, 10rem);
+  line-height: 1;
+  letter-spacing: -4px;
+  position: relative;
+}
+
+/* Efecto glitch de color en el 0 del medio */
+.nf-number span {
+  display: inline-block;
+  position: relative;
+}
+
+.nf-number span::after {
+  content: attr(data-char);
+  position: absolute;
+  inset: 0;
+  color: #E24B4A;
+  clip-path: inset(55% 0 0 0);
+  opacity: 0.7;
+}
+
+.nf-message {
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.65;
+  max-width: 380px;
+  line-height: 1.65;
+  margin: 16px auto 0;
+  position: relative;
+}
+
+.nf-message em {
+  opacity: 1;
+  color: var(--text-color);
+  font-style: italic;
+}
+
+.nf-btn {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1px solid rgba(128,128,128,0.3);
+  border-radius: 40px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nf-btn:hover {
+  background: rgba(128,128,128,0.08);
+  border-color: rgba(128,128,128,0.5);
+}
+
+.nf-btn:hover .nf-arrow {
+  transform: translateX(-3px);
+}
+
+.nf-arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.nf-footer {
+  margin-top: 48px;
+  font-size: 12px;
+  opacity: 0.4;
+  position: relative;
+}
