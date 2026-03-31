@@ -1267,6 +1267,8 @@ footer,
   position: relative;
   overflow: hidden;
   transition: background 0.15s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .sm-cert-card::before {
