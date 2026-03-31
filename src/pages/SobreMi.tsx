@@ -54,14 +54,14 @@ export default function SobreMi() {
         </div>
         <div className="sm-cert-grid">
           {[
-            { code: 'CJCA', name: 'Certified Junior Cybersecurity Analyst' },
-            { code: 'CDSA', name: 'Certified Defensive Security Analyst' },
-            { code: 'CRTA', name: 'Certified Red Team Analyst' },
+            { code: 'CJCA', name: 'Certified Junior Cybersecurity Analyst', url: 'https://www.credly.com/badges/dc4b2b23-06b5-475b-9fa0-5d49f13ce532/linked_in_profile' },
+            { code: 'CDSA', name: 'Certified Defensive Security Analyst', url: 'https://www.credly.com/badges/a157334b-79aa-4e46-9860-40a9fd4ba365/linked_in_profile' },
+            { code: 'CRTA', name: 'Certified Red Team Analyst', url: 'https://labs.cyberwarfare.live/credential/achievement/69572216c693d19893c34c47' },
           ].map(c => (
-            <div className="sm-cert-card" key={c.code}>
+            <a href={c.url} target="_blank" rel="noopener noreferrer" key={c.code} className="sm-cert-card">
               <span className="sm-cert-code">{c.code}</span>
               <span className="sm-cert-name">{c.name}</span>
-            </div>
+            </a>
           ))}
         </div>
       </div>
