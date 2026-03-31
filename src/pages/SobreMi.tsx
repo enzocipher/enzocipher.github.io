@@ -51,7 +51,6 @@ export default function SobreMi() {
       <div className="sm-block fade-in">
         <div className="h-section-header">
           <span className="h-section-title">Certificaciones</span>
-          <span className="h-section-sub">// en progreso</span>
         </div>
         <div className="sm-cert-grid">
           {[
@@ -136,10 +135,6 @@ export default function SobreMi() {
 
         </div>
       </div>
-
-      <footer>
-        <p>© 2025 Enzo Favio — Portafolio personal</p>
-      </footer>
     </>
   )
 }

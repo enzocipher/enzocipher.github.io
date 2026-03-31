@@ -107,10 +107,6 @@ export default function Home() {
         </div>
         <a className="h-btn" href="mailto:enzocipher@gmail.com">Escríbeme →</a>
       </div>
-
-      <footer>
-        <p>© 2025 Enzo Favio — Portafolio personal</p>
-      </footer>
     </>
   )
 }

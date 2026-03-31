@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Proyectos from './pages/Proyectos'
 import SobreMi from './pages/SobreMi'
@@ -18,6 +19,7 @@ export default function App(){
         <Route path="/contacto" element={<Contacto/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
+      <Footer />
     </div>
   )
 }

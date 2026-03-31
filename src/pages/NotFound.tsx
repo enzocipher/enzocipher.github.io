@@ -23,10 +23,6 @@ export default function NotFound() {
           <span className="nf-arrow">←</span> Volver al inicio
         </Link>
       </div>
-
-      <footer className="nf-footer">
-        © 2025 <strong>Enzo Favio</strong> — Hecho con té en lugar de café y prompts, huh?
-      </footer>
     </main>
   )
 }

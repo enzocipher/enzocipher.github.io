@@ -38,6 +38,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 section {
@@ -717,13 +719,14 @@ header {
 }
 
 /* ── Footer ──────────────────────────────────── */
-footer {
+footer,
+.app-footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
   color: var(--text-muted);
   background: var(--bg-raised);
-  box-shadow: var(--shadow);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
   margin-top: 4rem;
   width: 100%;
 }
@@ -798,16 +801,22 @@ footer {
 
 /* ── Home ────────────────────────────────────── */
 .h-hero {
-  padding: 5rem 2rem 4rem;
+  padding: 5rem 2rem 4rem 3rem;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(255,255,255,0.06);
-  max-width: 1200px;
+  max-width: 1300px;
+  width: 100%;
   margin: 0 auto;
+  gap: 2rem;
 }
 
 .h-hero-bg {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150%;
   background-image:
     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
@@ -817,7 +826,8 @@ footer {
 
 .h-hero-content {
   position: relative;
-  max-width: 700px;
+  flex: 1;
+  max-width: 800px;
 }
 
 .h-mono {
@@ -846,7 +856,7 @@ footer {
   font-size: 1rem;
   font-weight: 300;
   color: var(--text-muted);
-  max-width: 480px;
+  max-width: 550px;
   line-height: 1.7;
   margin-bottom: 28px;
 }
@@ -1307,7 +1317,7 @@ footer {
 /* ── Hero layout con estrella ────────────────── */
 .h-hero {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -1318,7 +1328,7 @@ footer {
   justify-content: center;
   width: 220px;
   height: 220px;
-  margin-right: 2rem;
+  margin-left: auto;
 }
 
 .h-star {
