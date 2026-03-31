@@ -1,4 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
+
+type Repo = {
+  id: number
+  name: string
+  html_url: string
+  description: string | null
+  language: string | null
+  updated_at: string
+  fork: boolean
+}
+
+type RepoResponse = {
+  generatedAt: string
+  source: string
+  repos: Repo[]
+}
 
 const LANG_COLORS = {
   Rust:       { bg: '#FFF1EE', text: '#7A2A1A', accent: '#E8593C' },
@@ -13,7 +29,7 @@ const LANG_COLORS = {
   Go:         { bg: '#E8F8FF', text: '#0A3048', accent: '#185FA5' },
 }
 
-function formatDate(d) {
+function formatDate(d: string) {
   try {
     return new Date(d).toLocaleDateString('es-ES', { year: 'numeric', month: 'short' })
   } catch {
@@ -21,31 +37,43 @@ function formatDate(d) {
   }
 }
 
-function LangBadge({ language }) {
+function LangBadge({ language }: { language: string | null }) {
   const lang = language || 'otros'
   const c = LANG_COLORS[language]
-  const style = c
+  const style: CSSProperties = c
     ? { background: c.bg, color: c.text, borderColor: c.accent + '55' }
     : {}
   return <span className="proy-lang" style={style}>{lang}</span>
 }
 
 export default function Proyectos() {
-  const [repos, setRepos] = useState([])
+  const [repos, setRepos] = useState<Repo[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState('all')
 
   useEffect(() => {
     let mounted = true
-    fetch('https://api.github.com/users/enzocipher/repos?sort=updated&per_page=100')
+
+    fetch('/repos.json')
       .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json() })
-      .then(data => { if (mounted) { setRepos(data.filter(r => !r.fork)); setLoading(false) } })
-      .catch(e => { if (mounted) { setError(e.message); setLoading(false) } })
+      .then((data: unknown) => {
+        if (!mounted) return
+        const parsed = data as Partial<RepoResponse>
+        const reposData = Array.isArray(parsed.repos) ? parsed.repos : []
+        setRepos(reposData.filter(r => !r.fork))
+        setLoading(false)
+      })
+      .catch(e => {
+        if (mounted) {
+          setError(e.message)
+          setLoading(false)
+        }
+      })
     return () => { mounted = false }
   }, [])
 
-  const languages = Array.from(new Set(repos.map(r => r.language || 'otros'))).slice(0, 12)
+  const languages: string[] = Array.from(new Set<string>(repos.map(r => r.language || 'otros'))).slice(0, 12)
   const visible = filter === 'all' ? repos : repos.filter(r => (r.language || 'otros') === filter)
 
   return (
@@ -96,8 +124,9 @@ export default function Proyectos() {
           ) : (
             visible.map(repo => {
               const accent = LANG_COLORS[repo.language]?.accent || 'var(--text-color)'
+              const cardStyle = { '--accent': accent } as CSSProperties & { '--accent': string }
               return (
-                <div className="proy-card" key={repo.id} style={{ '--accent': accent }}>
+                <div className="proy-card" key={repo.id} style={cardStyle}>
                   <div className="proy-card-top">
                     <a className="proy-name" href={repo.html_url} target="_blank" rel="noopener noreferrer">
                       {repo.name}

@@ -10,4 +10,6 @@ Instrucciones rápidas:
 
 Notas:
 - Los estilos y scripts originales se copiaron a `public/` y se referencian desde `index.html`.
-- La página `Proyectos` realiza una petición directa a la API de GitHub; si hay problemas de CORS, usa un proxy o un backend intermedio.
+- La página `Proyectos` consume `public/repos.json` (cache estático) en lugar de consultar la API de GitHub desde el navegador.
+- Actualización manual del cache: `npm run update:repos`.
+- Actualización automática semanal: workflow de GitHub Actions en `.github/workflows/update-repos.yml`.

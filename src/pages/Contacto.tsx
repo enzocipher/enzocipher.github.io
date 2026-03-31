@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react'
+
 export default function Contacto() {
   const channels = [
     {
@@ -40,7 +42,7 @@ export default function Contacto() {
             href={ch.href}
             target={ch.href.startsWith('http') ? '_blank' : undefined}
             rel="noopener noreferrer"
-            style={{ '--cl': ch.accent }}
+            style={{ '--cl': ch.accent } as CSSProperties & { '--cl': string }}
           >
             <div className="c-ch-icon">{ch.icon}</div>
             <span className="c-ch-label">{ch.label}</span>

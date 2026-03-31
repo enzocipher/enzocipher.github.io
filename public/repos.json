@@ -1,0 +1,204 @@
+{
+  "generatedAt": "2026-03-31T19:25:07.297Z",
+  "source": "github.com/enzocipher",
+  "repos": [
+    {
+      "id": 1187413458,
+      "name": "enzocipher",
+      "html_url": "https://github.com/enzocipher/enzocipher",
+      "description": "Huh",
+      "language": null,
+      "updated_at": "2026-03-31T16:53:21Z",
+      "fork": false
+    },
+    {
+      "id": 1110749557,
+      "name": "enzocipher.github.io",
+      "html_url": "https://github.com/enzocipher/enzocipher.github.io",
+      "description": null,
+      "language": "HTML",
+      "updated_at": "2026-03-31T14:54:41Z",
+      "fork": false
+    },
+    {
+      "id": 1149921367,
+      "name": "GodFat-Battle-Cats-Seeker-Local-Auto-Build",
+      "html_url": "https://github.com/enzocipher/GodFat-Battle-Cats-Seeker-Local-Auto-Build",
+      "description": "For those who dont want to wait to get the seed and just know how to do \"ls\" in linux.",
+      "language": "Dockerfile",
+      "updated_at": "2026-03-24T00:06:13Z",
+      "fork": false
+    },
+    {
+      "id": 1106834527,
+      "name": "C2_example",
+      "html_url": "https://github.com/enzocipher/C2_example",
+      "description": "Just an example of a functional C2",
+      "language": "HTML",
+      "updated_at": "2026-01-23T23:14:46Z",
+      "fork": false
+    },
+    {
+      "id": 1140884639,
+      "name": "testingps1",
+      "html_url": "https://github.com/enzocipher/testingps1",
+      "description": "for test",
+      "language": "PowerShell",
+      "updated_at": "2026-01-23T22:54:52Z",
+      "fork": false
+    },
+    {
+      "id": 1133851824,
+      "name": "Auto-Create-Files",
+      "html_url": "https://github.com/enzocipher/Auto-Create-Files",
+      "description": "Make directories and files in no time.",
+      "language": "JavaScript",
+      "updated_at": "2026-01-14T04:09:58Z",
+      "fork": false
+    },
+    {
+      "id": 1121960286,
+      "name": "anillo_unico",
+      "html_url": "https://github.com/enzocipher/anillo_unico",
+      "description": "Hola, te dije q haria un anillo epico",
+      "language": "JavaScript",
+      "updated_at": "2025-12-23T22:07:23Z",
+      "fork": false
+    },
+    {
+      "id": 1110781184,
+      "name": "web-org",
+      "html_url": "https://github.com/enzocipher/web-org",
+      "description": null,
+      "language": null,
+      "updated_at": "2025-12-05T17:55:17Z",
+      "fork": false
+    },
+    {
+      "id": 1055849642,
+      "name": "minimum_path_finder",
+      "html_url": "https://github.com/enzocipher/minimum_path_finder",
+      "description": "Proyecto en Rust para trabajo de matematica computacional",
+      "language": "Rust",
+      "updated_at": "2025-11-09T18:52:07Z",
+      "fork": false
+    },
+    {
+      "id": 1056875557,
+      "name": "Keylogger_With_Rust",
+      "html_url": "https://github.com/enzocipher/Keylogger_With_Rust",
+      "description": "A simple keylogger with rust which works with webhook",
+      "language": "Rust",
+      "updated_at": "2025-11-08T23:52:45Z",
+      "fork": false
+    },
+    {
+      "id": 1091992292,
+      "name": "CVE-2023-5359",
+      "html_url": "https://github.com/enzocipher/CVE-2023-5359",
+      "description": "CVE-2023-5359 - W3 Total Cache Cleartext Storage Vulnerability Scanner. Detect exposed credentials in W3 Total Cache plugin versions ≤ 2.7.5.",
+      "language": "Python",
+      "updated_at": "2025-11-07T20:37:02Z",
+      "fork": false
+    },
+    {
+      "id": 1075863607,
+      "name": "CVE-2025-25198",
+      "html_url": "https://github.com/enzocipher/CVE-2025-25198",
+      "description": "Captures password reset tokens from Mailcow Host header injection attacks. ",
+      "language": "Go",
+      "updated_at": "2025-10-21T23:13:27Z",
+      "fork": false
+    },
+    {
+      "id": 1077350531,
+      "name": "Bash-Scripts-for-Cibersecurity",
+      "html_url": "https://github.com/enzocipher/Bash-Scripts-for-Cibersecurity",
+      "description": "Scripts that i use for htb or others",
+      "language": "Shell",
+      "updated_at": "2025-10-18T19:04:24Z",
+      "fork": false
+    },
+    {
+      "id": 1064897956,
+      "name": "Tralalero-Tralala",
+      "html_url": "https://github.com/enzocipher/Tralalero-Tralala",
+      "description": "Trabajo para grupo",
+      "language": null,
+      "updated_at": "2025-09-26T18:15:26Z",
+      "fork": false
+    },
+    {
+      "id": 1056912785,
+      "name": "Colisionador_Doron",
+      "html_url": "https://github.com/enzocipher/Colisionador_Doron",
+      "description": "Huh",
+      "language": "JavaScript",
+      "updated_at": "2025-09-22T02:56:13Z",
+      "fork": false
+    },
+    {
+      "id": 1003346993,
+      "name": "Web-page-for-database",
+      "html_url": "https://github.com/enzocipher/Web-page-for-database",
+      "description": "A test web page for a mssql database",
+      "language": "HTML",
+      "updated_at": "2025-09-15T01:11:22Z",
+      "fork": false
+    },
+    {
+      "id": 1049267994,
+      "name": "calculadora_rust",
+      "html_url": "https://github.com/enzocipher/calculadora_rust",
+      "description": "Proyecto en Rust",
+      "language": "Rust",
+      "updated_at": "2025-09-02T18:56:39Z",
+      "fork": false
+    },
+    {
+      "id": 1014140374,
+      "name": "Docker-Hoteleria",
+      "html_url": "https://github.com/enzocipher/Docker-Hoteleria",
+      "description": "Docker creado para simular un servicio de hoteleria",
+      "language": "Python",
+      "updated_at": "2025-07-08T02:03:17Z",
+      "fork": false
+    },
+    {
+      "id": 980271554,
+      "name": "Pagina-Web-con-Flask",
+      "html_url": "https://github.com/enzocipher/Pagina-Web-con-Flask",
+      "description": null,
+      "language": "HTML",
+      "updated_at": "2025-05-16T18:03:30Z",
+      "fork": false
+    },
+    {
+      "id": 824715270,
+      "name": "Trabajos-Randoms",
+      "html_url": "https://github.com/enzocipher/Trabajos-Randoms",
+      "description": "Aquí están mis trabajos randoms, nadie me pide hacerlos, lo hago para practicar ",
+      "language": "Python",
+      "updated_at": "2025-04-27T23:56:55Z",
+      "fork": false
+    },
+    {
+      "id": 921469173,
+      "name": "code",
+      "html_url": "https://github.com/enzocipher/code",
+      "description": null,
+      "language": null,
+      "updated_at": "2025-01-24T02:21:11Z",
+      "fork": false
+    },
+    {
+      "id": 860102142,
+      "name": "TB1",
+      "html_url": "https://github.com/enzocipher/TB1",
+      "description": "tb1",
+      "language": "Python",
+      "updated_at": "2024-09-19T20:34:46Z",
+      "fork": false
+    }
+  ]
+}
