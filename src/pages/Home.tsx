@@ -31,7 +31,8 @@ export default function Home() {
           <p className="h-mono">// <span>enzocipher</span>.github.io</p>
           <h1
             className="h-name"
-            style={{ fontFamily: FONTS[fontIndex] }}
+            style={{ fontFamily: FONTS[fontIndex], cursor: 'pointer' }}
+            onClick={() => setFontIndex(i => (i + 1) % FONTS.length)}
             onMouseEnter={() => setFontIndex(i => (i + 1) % FONTS.length)}
           >
             Qué tal,<br />soy <span className="accent">Favio</span>
