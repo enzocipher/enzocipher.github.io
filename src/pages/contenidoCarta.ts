@@ -42,7 +42,15 @@ export const contenidoOriginal: BloqueCarta[] = [
     contenido: 'Por ahora no tengo dudas de nada y me gusta estar así me haces extremadamente feliz y yo te haré feliz también hermosa, y bueno con lo que planeo para el final ya tengo una idea de que hacer, hmmmm pero le bajaré un poco la intensidad! Te amo te amo tanto y quiero estar contigo toda mi vida, solo sé que también quiero declararme pero ahhhhh en tu cumpleaños no lo sé!!!!!!!! '
   },
   {
+    tipo: 'imagen',
+    contenido: 'https://media.tenor.com/k74mccd2w7oAAAAe/flower.png'
+  },
+  {
     tipo: 'texto',
-    contenido: 'Si lees esto escribeme \"Declarate pero en fa\" y lo hago con gusto, aunque la vrd podría ser q me ganes en declararte o incluso ya estemos saliendo antes de que leas esta carta, wuaaaa por qué es tan complicado lo que siento contigo???'
+    contenido: 'Bueno yo no decia cosas como \"Mi esposa\" prq pensaba que no te gustaría que lo diga pero luego veo que me dices así que ahhhh te amo mucho enserio, siempre me sorprendes porque siempre espero que suceda lo peor pero me das lo mejor awawawa, gracias lindura, eres la mejor, quizas estoy un poco ido mientras escribo esto'
+  },
+  {
+    tipo: 'texto',
+    contenido: 'Pero no significa que no me esté esforzando, solo ando un poco cansado pero quiero demostrar que me importas mucho como para poner esfuerzo a lo largo de los días en algo para ti, quizas no parezca mucho pero, lo hice con todo mi cariño, y quiero que este detalle llegue a tu corazón, te amo Alexa y de verdad quiero que tu cumpleaños sea un día en el que sepas que eres amada y querida, porque eres especial para mí y me has dado tanto que quiero pagartelo dandote cosas como estas. Aunque también quiero que las cosas seas especiales. por eso espero que no digas algo como un aniversario cada mes jsjsjs, quiero que sea especial mor, te amo mucho.'
   }
 ];

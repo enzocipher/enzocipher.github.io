@@ -4,7 +4,7 @@ import './Ale.css';
 
 export default function Ale() {
   const LIMITE_PALABRAS = 150; 
-
+  
   const paginas = useMemo(() => {
     const listaPaginas: BloqueCarta[][] = [[]];
     let indicePagina = 0;
@@ -35,6 +35,7 @@ export default function Ale() {
   }, []);
 
   const [paginaActual, setPaginaActual] = useState(0);
+  const [imagenAbierta, setImagenAbierta] = useState(false);
   const esUltimaPagina = paginaActual === paginas.length - 1;
 
   const irAPaginaAnterior = () => {
@@ -159,11 +160,31 @@ export default function Ale() {
               <p className="ale-ps">
                 P.D. <span className="ale-pixel-inline">★</span> Sí, me llamo Enzo también, Te amo mucho
               </p>
+              <button 
+                className="ale-touch-btn"
+                onClick={() => setImagenAbierta(true)}
+              >
+                Tocame :3
+              </button>
             </footer>
           ) : (
             <div className="ale-footer-space" />
           )}
-
+          
+          {imagenAbierta && (
+            <div 
+              className="ale-fullscreen-overlay"
+              onClick={() => setImagenAbierta(false)}
+            >
+              <img 
+                src="https://static.wikia.nocookie.net/friday-night-funkin-vs-impostor-v4/images/c/c7/VITomongusStaticIdle.png/revision/latest?cb=20250226163214&path-prefix=es"  
+                alt="Sorpresa" 
+                className="ale-fullscreen-img"
+              />
+              <button className="ale-close-btn" onClick={() => setImagenAbierta(false)}>✕</button>
+            </div>
+          )}
+          
           <div className="ale-pagination-controls">
             <button 
               onClick={irAPaginaAnterior} 

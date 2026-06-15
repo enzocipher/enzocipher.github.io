@@ -333,3 +333,74 @@
   .ale-pixel-art { font-size: 0.7rem; padding: 0.8rem 1rem; }
   .ale-carta-img { max-height: 180px; }
 }
+
+/* ── Botón Tocame ─────────────────────────────────────────── */
+.ale-touch-btn {
+  margin-top: 2rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: 'Charm', cursive;
+  font-size: 1.3rem;
+  padding: 0.6rem 2rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ale-touch-btn:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+/* ── Overlay Pantalla Completa ───────────────────────────── */
+.ale-fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.97);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: ale-fade-in 0.3s ease;
+}
+@keyframes ale-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.ale-fullscreen-img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: default;
+  animation: ale-scale-in 0.3s ease;
+}
+@keyframes ale-scale-in {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+.ale-close-btn {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 1.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+  z-index: 10000;
+}
+.ale-close-btn:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
