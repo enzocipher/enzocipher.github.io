@@ -1,23 +1,59 @@
 {
-  "generatedAt": "2026-03-31T19:25:07.297Z",
+  "generatedAt": "2026-06-15T12:36:49.206Z",
   "source": "github.com/enzocipher",
   "repos": [
+    {
+      "id": 1110749557,
+      "name": "enzocipher.github.io",
+      "html_url": "https://github.com/enzocipher/enzocipher.github.io",
+      "description": null,
+      "language": "CSS",
+      "updated_at": "2026-06-10T19:28:58Z",
+      "fork": false
+    },
     {
       "id": 1187413458,
       "name": "enzocipher",
       "html_url": "https://github.com/enzocipher/enzocipher",
       "description": "Huh",
       "language": null,
-      "updated_at": "2026-03-31T16:53:21Z",
+      "updated_at": "2026-06-02T12:54:02Z",
       "fork": false
     },
     {
-      "id": 1110749557,
-      "name": "enzocipher.github.io",
-      "html_url": "https://github.com/enzocipher/enzocipher.github.io",
+      "id": 1231218925,
+      "name": "Teto-Word-Of-The-Day",
+      "html_url": "https://github.com/enzocipher/Teto-Word-Of-The-Day",
+      "description": "Super Duper Secure JWT Generator, Algorithms are always public hehe.",
+      "language": "Rust",
+      "updated_at": "2026-05-06T18:50:28Z",
+      "fork": false
+    },
+    {
+      "id": 1206620205,
+      "name": "Known-Plaintext-Attack",
+      "html_url": "https://github.com/enzocipher/Known-Plaintext-Attack",
+      "description": "Simple algorithm to recover the key using a known plaintext.",
+      "language": "Rust",
+      "updated_at": "2026-04-10T05:07:28Z",
+      "fork": false
+    },
+    {
+      "id": 1198723347,
+      "name": "TampperMonkey-Scripts",
+      "html_url": "https://github.com/enzocipher/TampperMonkey-Scripts",
+      "description": "Collection of scripts",
+      "language": "JavaScript",
+      "updated_at": "2026-04-01T17:46:21Z",
+      "fork": false
+    },
+    {
+      "id": 1110781184,
+      "name": "React-Rust-Page",
+      "html_url": "https://github.com/enzocipher/React-Rust-Page",
       "description": null,
-      "language": "HTML",
-      "updated_at": "2026-03-31T14:54:41Z",
+      "language": null,
+      "updated_at": "2026-04-01T17:34:00Z",
       "fork": false
     },
     {
@@ -39,39 +75,12 @@
       "fork": false
     },
     {
-      "id": 1140884639,
-      "name": "testingps1",
-      "html_url": "https://github.com/enzocipher/testingps1",
-      "description": "for test",
-      "language": "PowerShell",
-      "updated_at": "2026-01-23T22:54:52Z",
-      "fork": false
-    },
-    {
       "id": 1133851824,
       "name": "Auto-Create-Files",
       "html_url": "https://github.com/enzocipher/Auto-Create-Files",
       "description": "Make directories and files in no time.",
       "language": "JavaScript",
       "updated_at": "2026-01-14T04:09:58Z",
-      "fork": false
-    },
-    {
-      "id": 1121960286,
-      "name": "anillo_unico",
-      "html_url": "https://github.com/enzocipher/anillo_unico",
-      "description": "Hola, te dije q haria un anillo epico",
-      "language": "JavaScript",
-      "updated_at": "2025-12-23T22:07:23Z",
-      "fork": false
-    },
-    {
-      "id": 1110781184,
-      "name": "web-org",
-      "html_url": "https://github.com/enzocipher/web-org",
-      "description": null,
-      "language": null,
-      "updated_at": "2025-12-05T17:55:17Z",
       "fork": false
     },
     {
@@ -120,24 +129,6 @@
       "fork": false
     },
     {
-      "id": 1064897956,
-      "name": "Tralalero-Tralala",
-      "html_url": "https://github.com/enzocipher/Tralalero-Tralala",
-      "description": "Trabajo para grupo",
-      "language": null,
-      "updated_at": "2025-09-26T18:15:26Z",
-      "fork": false
-    },
-    {
-      "id": 1056912785,
-      "name": "Colisionador_Doron",
-      "html_url": "https://github.com/enzocipher/Colisionador_Doron",
-      "description": "Huh",
-      "language": "JavaScript",
-      "updated_at": "2025-09-22T02:56:13Z",
-      "fork": false
-    },
-    {
       "id": 1003346993,
       "name": "Web-page-for-database",
       "html_url": "https://github.com/enzocipher/Web-page-for-database",
@@ -171,24 +162,6 @@
       "description": null,
       "language": "HTML",
       "updated_at": "2025-05-16T18:03:30Z",
-      "fork": false
-    },
-    {
-      "id": 824715270,
-      "name": "Trabajos-Randoms",
-      "html_url": "https://github.com/enzocipher/Trabajos-Randoms",
-      "description": "Aquí están mis trabajos randoms, nadie me pide hacerlos, lo hago para practicar ",
-      "language": "Python",
-      "updated_at": "2025-04-27T23:56:55Z",
-      "fork": false
-    },
-    {
-      "id": 921469173,
-      "name": "code",
-      "html_url": "https://github.com/enzocipher/code",
-      "description": null,
-      "language": null,
-      "updated_at": "2025-01-24T02:21:11Z",
       "fork": false
     },
     {
