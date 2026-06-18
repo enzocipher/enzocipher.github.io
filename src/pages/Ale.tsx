@@ -177,7 +177,7 @@ export default function Ale() {
               onClick={() => setImagenAbierta(false)}
             >
               <img 
-                src="https://static.wikia.nocookie.net/friday-night-funkin-vs-impostor-v4/images/c/c7/VITomongusStaticIdle.png/revision/latest?cb=20250226163214&path-prefix=es"  
+                src="/assets/limbus.png"  
                 alt="Sorpresa" 
                 className="ale-fullscreen-img"
               />

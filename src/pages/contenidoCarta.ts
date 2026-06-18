@@ -14,11 +14,11 @@ export const contenidoOriginal: BloqueCarta[] = [
   },
   {
     tipo: 'texto',
-    contenido: 'Lo que siento por ti, es aahhh haces acelerar mi corazón PERO ESTO NO ES UNA CARTE DE SAN VALENTIN, esto es una carta por tu cumpleaños, yo creo que es la primera vez que hago este esfuerzo por alguien, quizas no fui bueno antes pero quiero serlo por ti, quiero darte lo mejor de mí y que de verdad seas feliz estando conmigo, y bueno... te deseo un excelente cumpleaños y que la pases muy bonito con tu hermano. Oh no debía saber eso? Wuaaa dejame saber algunas cosas por mi cuenta amor!!!'
+    contenido: 'Lo que siento por ti, es aahhh haces acelerar mi corazón PERO ESTO NO ES UNA CARTE DE SAN VALENTIN, esto es una carta por tu cumpleaños, yo creo que es la primera vez que hago este esfuerzo por alguien, quizas no fui bueno antes pero quiero serlo por ti, quiero darte lo mejor de mí y que de verdad seas feliz estando conmigo, y bueno... te deseo un excelente cumpleaños y que la pases muy bonito ---censored---'
   },
   {
     tipo: 'texto',
-    contenido: 'De todos modos quiero que la pases bien, cuando veas esto quizas ya me habrás contado eso pero esto es muestra de que ya lo sabía muejeje, yo tmb tengo una hermana btw, eso no te lo conté o no se quizas si lo haga cuando leas esto, despues de todo tengo hasta el 18 en lo que escribo esta carta, igual mira este gatito que logre poner para darle mi identidad.'
+    contenido: 'De todos modos quiero que la pases bien, ---censored--- muejeje, tengo una hermana btw, eso no te lo conté o no se quizas si lo haga cuando leas esto, despues de todo tengo hasta el 18 en lo que escribo esta carta, igual mira este gatito que logre poner para darle mi identidad.'
   },
   {
     tipo: 'imagen',
