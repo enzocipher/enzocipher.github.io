@@ -177,7 +177,7 @@ export default function Ale() {
               onClick={() => setImagenAbierta(false)}
             >
               <img 
-                src="/assets/limbus.png"  
+                src="/assets/ale.jpg"  
                 alt="Sorpresa" 
                 className="ale-fullscreen-img"
               />
