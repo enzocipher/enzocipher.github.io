@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'preact-router'
 import './NotFound.css'
 
 export default function NotFound() {
@@ -19,7 +19,7 @@ export default function NotFound() {
           Lo que buscas <em>ya no está</em> o quizás nunca existió...
         </p>
 
-        <Link to="/" className="nf-btn">
+        <Link href="/" className="nf-btn">
           <span className="nf-arrow">←</span> Volver al inicio
         </Link>
       </div>
