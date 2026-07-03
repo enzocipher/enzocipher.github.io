@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import preact from '@preact/preset-vite'
 
 export default defineConfig({
@@ -9,7 +9,13 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      exclude: ['**/*.css'],
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: [
+        '**/*.css',
+        'src/main.tsx',
+        'src/**/*.d.ts',
+        'src/**/*.test.{ts,tsx}',
+      ],
       thresholds: {
         lines: 95,
         functions: 95,
