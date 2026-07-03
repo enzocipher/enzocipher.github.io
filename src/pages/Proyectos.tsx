@@ -1,14 +1,12 @@
 import { useEffect, useState, type CSSProperties } from 'react'
-
-type Repo = {
-  id: number
-  name: string
-  html_url: string
-  description: string | null
-  language: string | null
-  updated_at: string
-  fork: boolean
-}
+import {
+  filterReposByLanguage,
+  formatRepoUpdatedAt,
+  getRepoAccent,
+  getRepoBadgeStyle,
+  getRepoLanguages,
+  type Repo,
+} from '../lib/repos'
 
 type RepoResponse = {
   generatedAt: string
@@ -16,33 +14,19 @@ type RepoResponse = {
   repos: Repo[]
 }
 
-const LANG_COLORS = {
-  Rust:       { bg: '#FFF1EE', text: '#7A2A1A', accent: '#E8593C' },
-  Python:     { bg: '#EFF6FF', text: '#1A3A6A', accent: '#3B82F6' },
-  JavaScript: { bg: '#FEFCE8', text: '#6B4900', accent: '#EAB308' },
-  TypeScript: { bg: '#EFF6FF', text: '#1A3A6A', accent: '#378ADD' },
-  C:          { bg: '#F0F4FF', text: '#1E2A5A', accent: '#534AB7' },
-  'C++':      { bg: '#F0F4FF', text: '#1E2A5A', accent: '#7F77DD' },
-  HTML:       { bg: '#FFF4EE', text: '#7A3010', accent: '#E85D24' },
-  CSS:        { bg: '#F0FAFF', text: '#0A4060', accent: '#1D9E75' },
-  Shell:      { bg: '#F0FFF4', text: '#0A3A20', accent: '#3B6D11' },
-  Go:         { bg: '#E8F8FF', text: '#0A3048', accent: '#185FA5' },
+export function getReposFromResponse(data: unknown) {
+  const parsed = data as Partial<RepoResponse>
+  const reposData = Array.isArray(parsed.repos) ? parsed.repos : []
+  return reposData.filter(repo => !repo.fork)
 }
 
-function formatDate(d: string) {
-  try {
-    return new Date(d).toLocaleDateString('es-ES', { year: 'numeric', month: 'short' })
-  } catch {
-    return ''
-  }
+export function getFetchErrorMessage(status: number) {
+  return 'HTTP ' + status
 }
 
 function LangBadge({ language }: { language: string | null }) {
   const lang = language || 'otros'
-  const c = LANG_COLORS[language]
-  const style: CSSProperties = c
-    ? { background: c.bg, color: c.text, borderColor: c.accent + '55' }
-    : {}
+  const style: CSSProperties = getRepoBadgeStyle(language)
   return <span className="proy-lang" style={style}>{lang}</span>
 }
 
@@ -56,12 +40,10 @@ export default function Proyectos() {
     let mounted = true
 
     fetch('/repos.json')
-      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json() })
+      .then(r => { if (!r.ok) throw new Error(getFetchErrorMessage(r.status)); return r.json() })
       .then((data: unknown) => {
         if (!mounted) return
-        const parsed = data as Partial<RepoResponse>
-        const reposData = Array.isArray(parsed.repos) ? parsed.repos : []
-        setRepos(reposData.filter(r => !r.fork))
+        setRepos(getReposFromResponse(data))
         setLoading(false)
       })
       .catch(e => {
@@ -73,8 +55,8 @@ export default function Proyectos() {
     return () => { mounted = false }
   }, [])
 
-  const languages: string[] = Array.from(new Set<string>(repos.map(r => r.language || 'otros'))).slice(0, 12)
-  const visible = filter === 'all' ? repos : repos.filter(r => (r.language || 'otros') === filter)
+  const languages = getRepoLanguages(repos)
+  const visible = filterReposByLanguage(repos, filter)
 
   return (
     <section className="proyectos fade-in">
@@ -123,7 +105,7 @@ export default function Proyectos() {
             <p className="proy-empty">// sin resultados para este filtro</p>
           ) : (
             visible.map(repo => {
-              const accent = LANG_COLORS[repo.language]?.accent || 'var(--text-color)'
+              const accent = getRepoAccent(repo.language)
               const cardStyle = { '--accent': accent } as CSSProperties & { '--accent': string }
               return (
                 <div className="proy-card" key={repo.id} style={cardStyle}>
@@ -136,7 +118,7 @@ export default function Proyectos() {
                   <p className="proy-desc">{repo.description || '// sin descripción'}</p>
                   <div className="proy-footer">
                     <LangBadge language={repo.language} />
-                    <span className="proy-date">{formatDate(repo.updated_at)}</span>
+                    <span className="proy-date">{formatRepoUpdatedAt(repo.updated_at)}</span>
                   </div>
                 </div>
               )
