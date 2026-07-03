@@ -1,7 +1,20 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import preact from '@preact/preset-vite'
 
 export default defineConfig({
   base: '/',
-  plugins: [react()],
+  plugins: [preact({ devToolsEnabled: false })],
+  test: {
+    environment: 'jsdom',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html'],
+      exclude: ['**/*.css'],
+      thresholds: {
+        lines: 95,
+        functions: 95,
+        statements: 95,
+      },
+    },
+  },
 })

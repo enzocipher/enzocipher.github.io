@@ -2,6 +2,14 @@ import React, { useState, useMemo } from 'react';
 import { contenidoOriginal, BloqueCarta } from './contenidoCarta';
 import './Ale.css';
 
+export function getPaginaAnterior(paginaActual: number) {
+  return paginaActual > 0 ? paginaActual - 1 : paginaActual;
+}
+
+export function getPaginaSiguiente(paginaActual: number, totalPaginas: number) {
+  return paginaActual < totalPaginas - 1 ? paginaActual + 1 : paginaActual;
+}
+
 export default function Ale() {
   const LIMITE_PALABRAS = 150; 
   
@@ -39,11 +47,11 @@ export default function Ale() {
   const esUltimaPagina = paginaActual === paginas.length - 1;
 
   const irAPaginaAnterior = () => {
-    if (paginaActual > 0) setPaginaActual(paginaActual - 1);
+    setPaginaActual(getPaginaAnterior(paginaActual));
   };
 
   const irAPaginaSiguiente = () => {
-    if (paginaActual < paginas.length - 1) setPaginaActual(paginaActual + 1);
+    setPaginaActual(getPaginaSiguiente(paginaActual, paginas.length));
   };
 
   return (

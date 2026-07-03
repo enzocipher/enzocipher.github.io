@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'preact-router'
 
 const FONTS = ['Poppins', 'Courier New', 'Arial', 'Times New Roman', 'Verdana']
 
@@ -45,7 +45,7 @@ export default function Home() {
               <span key={t} className="h-tag">{t}</span>
             ))}
           </div>
-          <Link to="/proyectos" className="h-btn">Ver mis proyectos →</Link>
+          <Link href="/proyectos" className="h-btn">Ver mis proyectos →</Link>
         </div>
 
         <StarSpin />
