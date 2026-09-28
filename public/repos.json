@@ -1,14 +1,32 @@
 {
-  "generatedAt": "2026-09-21T12:37:29.393Z",
+  "generatedAt": "2026-09-28T13:39:23.017Z",
   "source": "github.com/enzocipher",
   "repos": [
+    {
+      "id": 1382031362,
+      "name": "Terraria-Server",
+      "html_url": "https://github.com/enzocipher/Terraria-Server",
+      "description": "myfrends",
+      "language": "Shell",
+      "updated_at": "2026-09-25T19:35:46Z",
+      "fork": false
+    },
+    {
+      "id": 1149921367,
+      "name": "GodFat-Battle-Cats-Seeker-Local-Auto-Build",
+      "html_url": "https://github.com/enzocipher/GodFat-Battle-Cats-Seeker-Local-Auto-Build",
+      "description": "For those who dont want to wait to get the seed and just know how to do \"ls\" in linux.",
+      "language": "Dockerfile",
+      "updated_at": "2026-09-23T21:27:47Z",
+      "fork": false
+    },
     {
       "id": 1110749557,
       "name": "enzocipher.github.io",
       "html_url": "https://github.com/enzocipher/enzocipher.github.io",
       "description": null,
       "language": "HTML",
-      "updated_at": "2026-09-14T12:31:42Z",
+      "updated_at": "2026-09-21T12:37:35Z",
       "fork": false
     },
     {
@@ -72,15 +90,6 @@
       "description": null,
       "language": null,
       "updated_at": "2026-04-01T17:34:00Z",
-      "fork": false
-    },
-    {
-      "id": 1149921367,
-      "name": "GodFat-Battle-Cats-Seeker-Local-Auto-Build",
-      "html_url": "https://github.com/enzocipher/GodFat-Battle-Cats-Seeker-Local-Auto-Build",
-      "description": "For those who dont want to wait to get the seed and just know how to do \"ls\" in linux.",
-      "language": "Dockerfile",
-      "updated_at": "2026-03-24T00:06:13Z",
       "fork": false
     },
     {
