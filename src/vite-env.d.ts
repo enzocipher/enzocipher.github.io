@@ -2,6 +2,7 @@
 
 import 'preact'
 import 'preact/jsx-runtime'
+import 'preact-router/match'
 
 declare module 'preact' {
   interface Attributes {
@@ -25,4 +26,10 @@ declare module 'preact-router' {
     activeClassName?: string
   }
   export function Link(props: LinkProps): preact.VNode
+}
+
+declare module 'preact-router/match' {
+  interface LinkProps {
+    href: string
+  }
 }

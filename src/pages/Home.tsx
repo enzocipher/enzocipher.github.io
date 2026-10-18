@@ -6,7 +6,15 @@ const FONTS = ['Poppins', 'Courier New', 'Arial', 'Times New Roman', 'Verdana']
 function StarSpin() {
   return (
     <div className="h-star-wrap" aria-hidden="true">
-      <img className="h-orbit" src="/assets/cipher-orbit.svg" alt="" />
+      <svg className="h-star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon
+          points="50,2 61,35 97,35 68,57 79,91 50,70 21,91 32,57 3,35 39,35"
+          fill="none"
+          stroke="var(--accent)"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+      </svg>
     </div>
   )
 }
@@ -63,7 +71,7 @@ export default function Home() {
       {/* PROYECTOS DESTACADOS */}
       <div className="h-projects fade-in">
         <div className="h-section-header">
-          <span className="h-section-title">Proyectos destacados</span>
+          <h2 className="h-section-title">Proyectos destacados</h2>
           <span className="h-section-sub">// 2 pinned</span>
         </div>
         <div className="h-proj-grid">

@@ -1,5 +1,6 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/preact'
+import { render, screen, fireEvent, waitFor, cleanup, act } from '@testing-library/preact'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { route } from 'preact-router'
 import App from '../src/App'
 import Navbar from '../src/components/Navbar'
 import Home from '../src/pages/Home'
@@ -10,6 +11,7 @@ import CTF from '../src/pages/CTF'
 import NotFound from '../src/pages/NotFound'
 
 afterEach(() => {
+  cleanup()
   vi.restoreAllMocks()
   vi.unstubAllGlobals()
   document.body.innerHTML = ''
@@ -18,9 +20,13 @@ afterEach(() => {
 
 function renderRoute(path: string) {
   window.history.pushState({}, '', path)
-  return render(
+  const view = render(
     <App />,
   )
+  act(() => {
+    route(path)
+  })
+  return view
 }
 
 describe('app routes', () => {
@@ -30,10 +36,12 @@ describe('app routes', () => {
     expect(screen.getByText('© 2025 Enzo Favio — Portafolio personal')).toBeTruthy()
   })
 
-  it('renders the about route', () => {
-    renderRoute('/sobre-mi')
+  it('renders the about route', async () => {
+    renderRoute('/')
+    fireEvent.click(screen.getByRole('link', { name: 'Sobre mí', exact: true }))
     expect(screen.getByText('Mi Historia')).toBeTruthy()
     expect(screen.getByText('Certificaciones')).toBeTruthy()
+    await waitFor(() => expect(screen.getByRole('link', { name: 'Sobre mí', exact: true }).classList.contains('active')).toBe(true))
   })
 
   it('renders the projects route', async () => {
@@ -85,10 +93,17 @@ describe('shared components', () => {
 
     const button = screen.getByRole('button', { name: 'Abrir menú' })
     expect(button.textContent).toContain('Menu')
+    expect(button.getAttribute('aria-expanded')).toBe('false')
     fireEvent.click(button)
     expect(screen.getByRole('button', { name: 'Abrir menú' }).textContent).toContain('Cerrar')
+    expect(button.getAttribute('aria-expanded')).toBe('true')
+    fireEvent.keyDown(screen.getByRole('navigation', { name: 'Navegación principal' }), { key: 'Escape' })
+    expect(button.getAttribute('aria-expanded')).toBe('false')
+    fireEvent.click(button)
+    expect(button.getAttribute('aria-expanded')).toBe('true')
     fireEvent.click(screen.getByRole('link', { name: 'Inicio' }))
     expect(screen.getByRole('button', { name: 'Abrir menú' }).textContent).toContain('Menu')
+    expect(button.getAttribute('aria-expanded')).toBe('false')
   })
 
   it('cycles home hero fonts with mouse, click, and supported keyboard keys', () => {

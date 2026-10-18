@@ -1,0 +1,5 @@
+# Official certificate image sources
+
+- `cjca.png` — HTB Certified Junior Cybersecurity Associate (CJCA). Original badge image: https://images.credly.com/images/95043c37-e916-4e4e-96ab-06fb66056648/linkedin_thumb_blob . Official badge record: https://www.credly.com/badges/dc4b2b23-06b5-475b-9fa0-5d49f13ce532/linked_in_profile
+- `cdsa.png` — HTB Certified Defensive Security Analyst (CDSA). Original badge image: https://images.credly.com/images/e78adea1-f60b-4991-b5d5-3427140c7c1d/linkedin_thumb_image.png . Official badge record: https://www.credly.com/badges/a157334b-79aa-4e46-9860-40a9fd4ba365/linked_in_profile
+- `crta.webp` — Official Cyberwarfare Labs CRTA course logo, served from https://cyberwarfare.live/assets/CRTA-CbXOAHVF.webp . Official credential page: https://labs.cyberwarfare.live/credential/achievement/69572216c693d19893c34c47 . The Labs credential page exposes a full certificate image, not a separate downloadable circular badge; this course logo is the official standalone image found on the provider's course site.

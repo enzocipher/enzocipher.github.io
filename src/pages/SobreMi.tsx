@@ -1,6 +1,6 @@
 export default function SobreMi() {
   return (
-    <>
+    <div className="sm-page">
       {/* HERO */}
       <section className="h-hero fade-in">
         <div className="h-hero-bg" aria-hidden="true" />
@@ -19,7 +19,7 @@ export default function SobreMi() {
       <div className="sm-text-block fade-in">
 
         <div className="sm-section">
-          <h3 className="sm-heading">Mi Historia</h3>
+          <h2 className="sm-heading">Mi Historia</h2>
           <p>
             Mi nombre es Enzo Favio O'Besso, soy un entusiasta de la ciberseguridad.
             Desde joven, he tenido una gran pasión por la tecnología y la programación,
@@ -28,7 +28,7 @@ export default function SobreMi() {
         </div>
 
         <div className="sm-section">
-          <h3 className="sm-heading">Mi Experiencia</h3>
+          <h2 className="sm-heading">Mi Experiencia</h2>
           <p>
             Actualmente estudio en la Universidad Peruana de Ciencias Aplicadas en
             Ingeniería de Ciberseguridad, y constantemente participo en competencias
@@ -37,7 +37,7 @@ export default function SobreMi() {
         </div>
 
         <div className="sm-section">
-          <h3 className="sm-heading">Mis Objetivos</h3>
+          <h2 className="sm-heading">Mis Objetivos</h2>
           <p>
             Mi objetivo es seguir aprendiendo y creciendo en el campo de la
             ciberseguridad. A futuro me gustaría llegar a ser
@@ -50,7 +50,7 @@ export default function SobreMi() {
       {/* CERTIFICACIONES */}
       <div className="sm-block fade-in">
         <div className="h-section-header">
-          <span className="h-section-title">Certificaciones</span>
+          <h2 className="h-section-title">Certificaciones</h2>
         </div>
         <div className="sm-cert-grid">
           {[
@@ -59,6 +59,9 @@ export default function SobreMi() {
             { code: 'CRTA', name: 'Certified Red Team Analyst', url: 'https://labs.cyberwarfare.live/credential/achievement/69572216c693d19893c34c47' },
           ].map(c => (
             <a href={c.url} target="_blank" rel="noopener noreferrer" key={c.code} className="sm-cert-card">
+              <div className="sm-cert-emblem">
+                <img src={`/assets/certs/${c.code.toLowerCase()}.${c.code === 'CRTA' ? 'webp' : 'png'}`} alt="" loading="lazy" width="160" height="160" />
+              </div>
               <span className="sm-cert-code">{c.code}</span>
               <span className="sm-cert-name">{c.name}</span>
             </a>
@@ -69,7 +72,7 @@ export default function SobreMi() {
       {/* HABILIDADES TÉCNICAS */}
       <div className="sm-block fade-in">
         <div className="h-section-header">
-          <span className="h-section-title">Habilidades Técnicas</span>
+          <h2 className="h-section-title">Habilidades Técnicas</h2>
           <span className="h-section-sub">// skills</span>
         </div>
         <div className="skills-grid">
@@ -135,6 +138,6 @@ export default function SobreMi() {
 
         </div>
       </div>
-    </>
+    </div>
   )
 }
