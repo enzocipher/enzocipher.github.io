@@ -1,14 +1,68 @@
 {
-  "generatedAt": "2026-06-29T11:18:49.286Z",
+  "generatedAt": "2026-10-12T15:09:51.499Z",
   "source": "github.com/enzocipher",
   "repos": [
+    {
+      "id": 1415063269,
+      "name": "Uni-6-Obsidian",
+      "html_url": "https://github.com/enzocipher/Uni-6-Obsidian",
+      "description": null,
+      "language": null,
+      "updated_at": "2026-10-12T04:40:36Z",
+      "fork": false
+    },
+    {
+      "id": 1405051881,
+      "name": "Starry-Flowers-but-in-Rust",
+      "html_url": "https://github.com/enzocipher/Starry-Flowers-but-in-Rust",
+      "description": "Starry flowers but in rust",
+      "language": "Rust",
+      "updated_at": "2026-10-05T20:07:22Z",
+      "fork": false
+    },
     {
       "id": 1110749557,
       "name": "enzocipher.github.io",
       "html_url": "https://github.com/enzocipher/enzocipher.github.io",
       "description": null,
-      "language": "CSS",
-      "updated_at": "2026-06-22T12:21:33Z",
+      "language": "HTML",
+      "updated_at": "2026-10-05T14:22:44Z",
+      "fork": false
+    },
+    {
+      "id": 1382031362,
+      "name": "Terraria-Server",
+      "html_url": "https://github.com/enzocipher/Terraria-Server",
+      "description": "myfrends",
+      "language": "Shell",
+      "updated_at": "2026-09-29T15:55:31Z",
+      "fork": false
+    },
+    {
+      "id": 1149921367,
+      "name": "GodFat-Battle-Cats-Seeker-Local-Auto-Build",
+      "html_url": "https://github.com/enzocipher/GodFat-Battle-Cats-Seeker-Local-Auto-Build",
+      "description": "For those who dont want to wait to get the seed and just know how to do \"ls\" in linux.",
+      "language": "Dockerfile",
+      "updated_at": "2026-09-23T21:27:47Z",
+      "fork": false
+    },
+    {
+      "id": 1328115168,
+      "name": "bolimangus",
+      "html_url": "https://github.com/enzocipher/bolimangus",
+      "description": null,
+      "language": "JavaScript",
+      "updated_at": "2026-08-31T04:16:47Z",
+      "fork": false
+    },
+    {
+      "id": 1351606890,
+      "name": "fishmael",
+      "html_url": "https://github.com/enzocipher/fishmael",
+      "description": null,
+      "language": "C",
+      "updated_at": "2026-08-30T19:22:05Z",
       "fork": false
     },
     {
@@ -54,15 +108,6 @@
       "description": null,
       "language": null,
       "updated_at": "2026-04-01T17:34:00Z",
-      "fork": false
-    },
-    {
-      "id": 1149921367,
-      "name": "GodFat-Battle-Cats-Seeker-Local-Auto-Build",
-      "html_url": "https://github.com/enzocipher/GodFat-Battle-Cats-Seeker-Local-Auto-Build",
-      "description": "For those who dont want to wait to get the seed and just know how to do \"ls\" in linux.",
-      "language": "Dockerfile",
-      "updated_at": "2026-03-24T00:06:13Z",
       "fork": false
     },
     {
