@@ -10,7 +10,7 @@
     "test:coverage": "vitest run --coverage",
     "preview": "vite preview",
     "update:repos": "node scripts/update-repos.mjs",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d build -b gh-pages"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
