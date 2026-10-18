@@ -3,11 +3,26 @@ import { Link } from "preact-router/match";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
   const menuId = useId();
+  const navigationId = useId();
   const closeMenu = () => setOpen(false);
   return (
-    <header className="site-navigation">
+    <header className={`site-navigation ${collapsed ? "is-collapsed" : ""}`}>
+      <button
+        className="sidebar-toggle"
+        type="button"
+        aria-label={collapsed ? "Expandir navegación" : "Contraer navegación"}
+        aria-expanded={!collapsed}
+        aria-controls={navigationId}
+        onClick={() => setCollapsed((value) => !value)}
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          {collapsed ? <path d="m9 18 6-6-6-6" /> : <path d="m15 18-6-6 6-6" />}
+        </svg>
+      </button>
       <nav
+        id={navigationId}
         className="navbar"
         aria-label="Navegación principal"
         onKeyDown={(event) => {
@@ -15,11 +30,11 @@ export default function Navbar() {
         }}
       >
         <Link className="logo" href="/">
-          Mi Portfolio
+          <span className="logo-text">EnzoCipher</span>
         </Link>
         <ul id={menuId} className={`nav-links ${open ? "active" : ""}`}>
           <li>
-            <Link href="/" activeClassName="active" onClick={closeMenu}>
+            <Link href="/" title={collapsed ? "Inicio" : undefined} activeClassName="active" onClick={closeMenu}>
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -36,7 +51,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/sobre-mi" activeClassName="active" onClick={closeMenu}>
+            <Link href="/sobre-mi" title={collapsed ? "Sobre mí" : undefined} activeClassName="active" onClick={closeMenu}>
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -55,6 +70,7 @@ export default function Navbar() {
           <li>
             <Link
               href="/proyectos"
+              title={collapsed ? "Proyectos" : undefined}
               activeClassName="active"
               onClick={closeMenu}
             >
@@ -74,7 +90,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/contacto" activeClassName="active" onClick={closeMenu}>
+            <Link href="/contacto" title={collapsed ? "Contacto" : undefined} activeClassName="active" onClick={closeMenu}>
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -93,6 +109,7 @@ export default function Navbar() {
           <li>
             <a
               href="https://github.com/enzocipher"
+              title={collapsed ? "GitHub" : undefined}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -113,6 +130,7 @@ export default function Navbar() {
           <li>
             <a
               href="https://www.linkedin.com/in/enzo-favio-o-besso-93409b335"
+              title={collapsed ? "LinkedIn" : undefined}
               target="_blank"
               rel="noopener noreferrer"
             >

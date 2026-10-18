@@ -106,6 +106,31 @@ describe('shared components', () => {
     expect(button.getAttribute('aria-expanded')).toBe('false')
   })
 
+  it('collapses and expands the sidebar while preserving navigation links', () => {
+    render(<Navbar />)
+
+    const header = document.querySelector('.site-navigation') as HTMLElement
+    const toggle = screen.getByRole('button', { name: 'Contraer navegación' })
+    expect(screen.getByText('EnzoCipher')).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Inicio' })).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Sobre mí' })).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Proyectos' })).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Contacto' })).toBeTruthy()
+    expect(toggle.getAttribute('aria-expanded')).toBe('true')
+
+    fireEvent.click(toggle)
+    expect(header.classList.contains('is-collapsed')).toBe(true)
+    const expandToggle = screen.getByRole('button', { name: 'Expandir navegación' })
+    expect(expandToggle.getAttribute('aria-expanded')).toBe('false')
+    expect(expandToggle.getAttribute('aria-controls')).toBe(screen.getByRole('navigation', { name: 'Navegación principal' }).id)
+    expect(screen.getByRole('link', { name: 'Inicio' }).getAttribute('title')).toBe('Inicio')
+    expect(screen.getByRole('link', { name: 'Sobre mí' })).toBeTruthy()
+
+    fireEvent.click(expandToggle)
+    expect(header.classList.contains('is-collapsed')).toBe(false)
+    expect(screen.getByRole('button', { name: 'Contraer navegación' }).getAttribute('aria-expanded')).toBe('true')
+  })
+
   it('cycles home hero fonts with mouse, click, and supported keyboard keys', () => {
     render(
       <Home />,

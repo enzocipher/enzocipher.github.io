@@ -1,4 +1,27 @@
 export default function SobreMi() {
+  const languageSkills = [
+    { mark: 'R', name: 'Rust', level: 'Intermedio' },
+    { mark: 'Py', name: 'Python', level: 'Intermedio' },
+    { mark: '>_', name: 'Shell Scripting', level: 'Intermedio' },
+    { mark: 'JS', name: 'JavaScript', level: 'Básico' },
+    { mark: 'C++', name: 'C++', level: 'Básico' },
+    { mark: 'TS', name: 'TypeScript', level: 'Básico' },
+    { mark: 'Go', name: 'Golang', level: 'Básico' },
+    { mark: 'PS', name: 'Powershell', level: 'Básico' },
+  ]
+  const securitySkills = [
+    'Penetration Testing', 'Vulnerability Assessment', 'Web Application Exploitation',
+    'System Exploitation', 'Privilege Escalation', 'Post-Exploitation', 'Red Teaming',
+    'Adversary Simulation', 'Threat Hunting', 'Incident Handling', 'Intrusion Detection',
+    'Log Analysis', 'Network Traffic Analysis', 'Security Monitoring', 'Encryption Techniques',
+    'Compliance (GDPR, HIPAA)',
+  ]
+  const toolSkills = [
+    'Nmap', 'Metasploit Framework', 'Burp Suite', 'Caido', 'Wireshark',
+    'Elastic Stack (ELK)', 'Splunk', 'Wazuh', 'Volatility', 'Autopsy', 'YARA', 'SQLMap',
+    'Gobuster / WFuzz', 'Hydra / John The Ripper', 'Velociraptor', 'Binary Ninja', 'Kali Linux',
+  ]
+
   return (
     <div className="sm-page">
       {/* HERO */}
@@ -70,69 +93,60 @@ export default function SobreMi() {
       </div>
 
       {/* HABILIDADES TÉCNICAS */}
-      <div className="sm-block fade-in">
+      <div id="habilidades" className="sm-block fade-in">
         <div className="h-section-header">
           <h2 className="h-section-title">Habilidades Técnicas</h2>
           <span className="h-section-sub">// skills</span>
         </div>
         <div className="skills-grid">
 
-          <div className="skill-category">
-            <h3>Lenguajes</h3>
+          <div className="skill-category skill-languages">
+            <h3>
+              <svg className="skill-heading-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="m8 5-6 7 6 7M16 5l6 7-6 7" /></svg>
+              Lenguajes
+            </h3>
             <ul>
-              <li>Rust <span className="sm-level">Intermedio</span></li>
-              <li>Python <span className="sm-level">Intermedio</span></li>
-              <li>Shell Scripting <span className="sm-level">Intermedio</span></li>
-              <li>JavaScript <span className="sm-level">Básico</span></li>
-              <li>C++ <span className="sm-level">Básico</span></li>
-              <li>TypeScript <span className="sm-level">Básico</span></li>
-              <li>Golang <span className="sm-level">Básico</span></li>
-              <li>Powershell <span className="sm-level">Básico</span></li>
+              {languageSkills.map(skill => (
+                <li key={skill.name}>
+                  <span className="skill-language-mark" aria-hidden="true">{skill.mark}</span>
+                  <span className="skill-language-name">{skill.name}</span>
+                  <span className="sm-level">{skill.level}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="skill-category">
-            <h3>Ciberseguridad</h3>
+          <div className="skill-category skill-security">
+            <h3>
+              <svg className="skill-heading-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3 20 6v5c0 5.1-3.4 8.2-8 10-4.6-1.8-8-4.9-8-10V6l8-3Z"/><path d="M9.2 12a2.8 2.8 0 1 1 5.6 0c0 1.2-.7 1.9-1.5 2.6-.8.6-1.3 1.1-1.3 2"/><path d="M12 18h.01"/></svg>
+              Ciberseguridad
+            </h3>
             <ul>
-              <li>Penetration Testing</li>
-              <li>Vulnerability Assessment</li>
-              <li>Web Application Exploitation</li>
-              <li>System Exploitation</li>
-              <li>Privilege Escalation</li>
-              <li>Post-Exploitation</li>
-              <li>Red Teaming</li>
-              <li>Adversary Simulation</li>
-              <li>Threat Hunting</li>
-              <li>Incident Handling</li>
-              <li>Intrusion Detection</li>
-              <li>Log Analysis</li>
-              <li>Network Traffic Analysis</li>
-              <li>Security Monitoring</li>
-              <li>Encryption Techniques</li>
-              <li>Compliance (GDPR, HIPAA)</li>
+              {securitySkills.map(skill => (
+                <li key={skill}>
+                  <svg className="skill-security-mark" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 0 8 4 4 8 0 4Z" fill="currentColor" /></svg>
+                  <span>{skill}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="skill-category">
-            <h3>Herramientas</h3>
+          <div className="skill-category skill-tools">
+            <h3>
+              <svg className="skill-heading-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 6.5a5 5 0 0 0-6.3 6.3L3 18a2.1 2.1 0 0 0 3 3l5.2-5.2a5 5 0 0 0 6.3-6.3l-3 3-3-3 3-3Z"/><path d="m18 4 2 2"/></svg>
+              Herramientas
+            </h3>
             <ul>
-              <li>Nmap</li>
-              <li>Metasploit Framework</li>
-              <li>Burp Suite</li>
-              <li>Caido</li>
-              <li>Wireshark</li>
-              <li>Elastic Stack (ELK)</li>
-              <li>Splunk</li>
-              <li>Wazuh</li>
-              <li>Volatility</li>
-              <li>Autopsy</li>
-              <li>YARA</li>
-              <li>SQLMap</li>
-              <li>Gobuster / WFuzz</li>
-              <li>Hydra / John The Ripper</li>
-              <li>Velociraptor</li>
-              <li>Binary Ninja</li>
-              <li>Kali Linux</li>
+              {toolSkills.map((skill, index) => (
+                <li key={skill}>
+                  <span className="skill-tool-mark" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      {index % 3 === 0 ? <><circle cx="8" cy="8" r="5.5"/><path d="M5 8h6M8 5v6"/></> : index % 3 === 1 ? <><path d="m8 1.8 5.2 3v6L8 13.8l-5.2-3v-6L8 1.8Z"/><path d="m5.7 8 1.5 1.5 3.2-3.2"/></> : <><path d="M3 3h10v10H3z"/><path d="M5.5 6h5M5.5 8h5M5.5 10h3"/></>}
+                    </svg>
+                  </span>
+                  <span>{skill}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
