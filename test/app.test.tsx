@@ -8,7 +8,6 @@ import Contacto from '../src/pages/Contacto'
 import SobreMi from '../src/pages/SobreMi'
 import CTF from '../src/pages/CTF'
 import NotFound from '../src/pages/NotFound'
-import Ale from '../src/pages/Ale'
 
 afterEach(() => {
   vi.restoreAllMocks()
@@ -70,6 +69,12 @@ describe('app routes', () => {
     renderRoute('/missing')
     expect(screen.getByLabelText('404')).toBeTruthy()
   })
+
+  it('does not render the removed Ale page', () => {
+    renderRoute('/ale')
+    expect(screen.getByLabelText('404')).toBeTruthy()
+    expect(screen.queryByText(/Querida Ale|Para Alexa/)).toBeNull()
+  })
 })
 
 describe('shared components', () => {
@@ -86,15 +91,26 @@ describe('shared components', () => {
     expect(screen.getByRole('button', { name: 'Abrir menú' }).textContent).toContain('Menu')
   })
 
-  it('renders the home hero and cycles fonts', () => {
+  it('cycles home hero fonts with mouse, click, and supported keyboard keys', () => {
     render(
       <Home />,
     )
 
-    const hero = screen.getByText(/Qué tal,/)
-    fireEvent.mouseEnter(hero.closest('h1') as HTMLElement)
-    fireEvent.click(hero.closest('h1') as HTMLElement)
-    expect(hero).toBeTruthy()
+    const hero = screen.getByText(/Qué tal,/).closest('h1') as HTMLElement
+    expect(hero.style.fontFamily).toBe('Poppins')
+
+    fireEvent.mouseEnter(hero)
+    expect(hero.style.fontFamily).toContain('Courier New')
+    fireEvent.click(hero)
+    expect(hero.style.fontFamily).toBe('Arial')
+
+    fireEvent.keyDown(hero, { key: 'Enter' })
+    expect(hero.style.fontFamily).toContain('Times New Roman')
+    fireEvent.keyDown(hero, { key: ' ' })
+    expect(hero.style.fontFamily).toBe('Verdana')
+
+    fireEvent.keyDown(hero, { key: 'ArrowRight' })
+    expect(hero.style.fontFamily).toBe('Verdana')
   })
 
   it('shows filtered repos and counts', async () => {
@@ -184,16 +200,4 @@ describe('shared components', () => {
     expect(await screen.findByText('// sin resultados para este filtro')).toBeTruthy()
   })
 
-  it('navigates through the letter pages and opens the image', () => {
-    render(<Ale />)
-
-    const next = screen.getByRole('button', { name: /sig/i })
-    while (!next.hasAttribute('disabled')) {
-      fireEvent.click(next)
-    }
-
-    fireEvent.click(screen.getByRole('button', { name: 'Tocame :3' }))
-    expect(screen.getByAltText('Sorpresa')).toBeTruthy()
-    fireEvent.click(screen.getByRole('button', { name: '✕' }))
-  })
 })

@@ -6,15 +6,7 @@ const FONTS = ['Poppins', 'Courier New', 'Arial', 'Times New Roman', 'Verdana']
 function StarSpin() {
   return (
     <div className="h-star-wrap" aria-hidden="true">
-      <svg className="h-star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <polygon
-          points="50,2 61,35 97,35 68,57 79,91 50,70 21,91 32,57 3,35 39,35"
-          fill="none"
-          stroke="var(--accent)"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <img className="h-orbit" src="/assets/cipher-orbit.svg" alt="" />
     </div>
   )
 }
@@ -34,6 +26,13 @@ export default function Home() {
             style={{ fontFamily: FONTS[fontIndex], cursor: 'pointer' }}
             onClick={() => setFontIndex(i => (i + 1) % FONTS.length)}
             onMouseEnter={() => setFontIndex(i => (i + 1) % FONTS.length)}
+            tabIndex={0}
+            onKeyDown={event => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                setFontIndex(i => (i + 1) % FONTS.length)
+              }
+            }}
           >
             Qué tal,<br />soy <span className="accent">Favio</span>
           </h1>
