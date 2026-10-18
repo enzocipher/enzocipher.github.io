@@ -52,7 +52,10 @@ export default function Home() {
               <span key={t} className="h-tag">{t}</span>
             ))}
           </div>
-          <Link href="/proyectos" className="h-btn">Ver mis proyectos →</Link>
+          <div className="h-hero-actions">
+            <Link href="/proyectos" className="h-btn">Ver mis proyectos →</Link>
+            <Link href="/sobre-mi" className="h-btn h-btn-secondary">Más sobre mí</Link>
+          </div>
         </div>
 
         <StarSpin />

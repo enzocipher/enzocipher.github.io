@@ -151,6 +151,21 @@ p {
   transform: translateY(3px);
   box-shadow: none;
 }
+.h-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.h-btn-secondary {
+  background: transparent;
+  border-color: var(--secondary);
+  color: var(--text);
+  box-shadow: none;
+}
+.h-btn-secondary:hover {
+  background: #b6a6ca18;
+}
 .h-projects {
   padding: 65px 0;
 }
