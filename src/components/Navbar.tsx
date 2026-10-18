@@ -3,7 +3,7 @@ import { Link } from "preact-router/match";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const menuId = useId();
   const navigationId = useId();
   const closeMenu = () => setOpen(false);
@@ -18,20 +18,22 @@ export default function Navbar() {
         onClick={() => setCollapsed((value) => !value)}
       >
         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          {collapsed ? <path d="m9 18 6-6-6-6" /> : <path d="m15 18-6-6 6-6" />}
+          {collapsed ? (
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          ) : (
+            <path d="m6 6 12 12M18 6 6 18" />
+          )}
         </svg>
       </button>
       <nav
         id={navigationId}
         className="navbar"
         aria-label="Navegación principal"
+        hidden={collapsed}
         onKeyDown={(event) => {
           if (event.key === "Escape") closeMenu();
         }}
       >
-        <Link className="logo" href="/">
-          <span className="logo-text">EnzoCipher</span>
-        </Link>
         <ul id={menuId} className={`nav-links ${open ? "active" : ""}`}>
           <li>
             <Link href="/" title={collapsed ? "Inicio" : undefined} activeClassName="active" onClick={closeMenu}>

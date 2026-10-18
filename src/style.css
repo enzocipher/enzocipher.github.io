@@ -775,35 +775,6 @@ body {
   padding: 38px 22px;
   gap: 55px;
 }
-.logo {
-  font:
-    800 23px/1.1 "Syne",
-    sans-serif;
-  color: var(--accent);
-  letter-spacing: -0.06em;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.logo::before {
-  content: "";
-  width: 22px;
-  height: 24px;
-  flex-shrink: 0;
-  background: var(--accent);
-  clip-path: polygon(
-    50% 0,
-    62% 35%,
-    100% 35%,
-    70% 58%,
-    80% 100%,
-    50% 74%,
-    20% 100%,
-    30% 58%,
-    0 35%,
-    38% 35%
-  );
-}
 .nav-links {
   display: flex;
   flex-direction: column;
@@ -1167,9 +1138,6 @@ body {
   .navbar {
     padding: 32px 17px;
   }
-  .logo {
-    font-size: 20px;
-  }
   .main-container {
     margin-left: 185px;
     width: calc(100% - 185px);
@@ -1234,9 +1202,6 @@ body {
     align-items: center;
     padding: 8px;
     gap: 8px;
-  }
-  .logo {
-    display: none;
   }
   .nav-links {
     height: auto;
@@ -1534,29 +1499,6 @@ body {
   gap: 9px;
   white-space: nowrap;
 }
-.sidebar-toggle {
-  position: absolute;
-  right: -15px;
-  top: 100px;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 40px;
-  border: 1px solid var(--line);
-  border-radius: 15px;
-  background: #302b34;
-  color: var(--accent);
-  cursor: pointer;
-}
-.sidebar-toggle svg {
-  width: 18px;
-  height: 18px;
-}
-.sidebar-toggle:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
 .sm-page .sm-text-block {
   padding-top: 35px;
   gap: 12px;
@@ -1776,64 +1718,6 @@ body {
   .app-footer {
     transition: margin-left 0.25s ease;
   }
-  .site-navigation.is-collapsed {
-    width: 78px;
-  }
-  .is-collapsed .navbar {
-    padding: 38px 12px;
-    gap: 55px;
-  }
-  .is-collapsed .logo {
-    justify-content: center;
-    min-height: 26px;
-  }
-  .is-collapsed .logo-text,
-  .is-collapsed .nav-links a > span {
-    position: absolute;
-    overflow: hidden;
-    clip-path: inset(50%);
-    width: 1px;
-    height: 1px;
-    white-space: nowrap;
-  }
-  .is-collapsed .nav-links a {
-    justify-content: center;
-    padding: 13px;
-    min-height: 46px;
-    border-radius: 14px;
-  }
-  .is-collapsed .nav-links li:nth-last-child(2) {
-    padding-top: 24px;
-  }
-  .is-collapsed .nav-links a[title]::after {
-    content: attr(title);
-    position: absolute;
-    left: calc(100% + 12px);
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 8px 13px;
-    background: #302b34;
-    border: 1px solid var(--line);
-    border-radius: 9px;
-    color: var(--text);
-    font-size: 13px;
-    white-space: nowrap;
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.15s;
-  }
-  .is-collapsed .nav-links a[title]:is(:hover, :focus-visible)::after {
-    visibility: visible;
-    opacity: 1;
-  }
-  body:has(.site-navigation.is-collapsed) .main-container {
-    margin-left: 78px;
-    width: calc(100% - 78px);
-  }
-  body:has(.site-navigation.is-collapsed) .app-footer {
-    margin-left: 78px;
-  }
 }
 @media (max-width: 1200px) {
   .skill-languages ul {
@@ -1855,20 +1739,7 @@ body {
     padding: 30px;
   }
 }
-@media (max-width: 1100px) {
-  .logo {
-    font-size: 17px;
-    gap: 7px;
-  }
-  .logo::before {
-    width: 19px;
-    height: 21px;
-  }
-}
 @media (max-width: 800px) {
-  .sidebar-toggle {
-    display: none;
-  }
   .skills-grid {
     gap: 20px;
   }
@@ -2019,14 +1890,84 @@ body {
     padding: 10px 5px 25px;
   }
 }
-
-.logo {
-  font-size: 16px;
-  gap: 8px;
+/* The navigation starts hidden; only its reopen control stays on screen. */
+.navbar[hidden] {
+  display: none !important;
 }
-@media (max-width: 1100px) {
-  .logo {
-    font-size: 14px;
-    gap: 7px;
+.navbar {
+  padding-top: 82px;
+}
+.sidebar-toggle {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #302b34;
+  color: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 5px 18px #0003;
+}
+.sidebar-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+.sidebar-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+.site-navigation.is-collapsed {
+  width: 0;
+  height: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  inset: 0 auto auto 0;
+}
+.is-collapsed .sidebar-toggle {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  right: auto;
+}
+@media (min-width: 801px) {
+  body:has(.site-navigation.is-collapsed) .main-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-top: 25px;
+  }
+  body:has(.site-navigation.is-collapsed) .app-footer {
+    margin-inline: auto;
+    max-width: 1320px;
+  }
+}
+@media (max-width: 800px) {
+  .navbar {
+    padding-top: 8px;
+  }
+  .sidebar-toggle {
+    right: -3px;
+    top: -25px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #302b34;
+  }
+  .is-collapsed .sidebar-toggle {
+    top: auto;
+    bottom: 16px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+  }
+  body:has(.site-navigation.is-collapsed) {
+    padding-bottom: 80px;
   }
 }

@@ -38,6 +38,7 @@ describe('app routes', () => {
 
   it('renders the about route', async () => {
     renderRoute('/')
+    fireEvent.click(screen.getByRole('button', { name: 'Expandir navegación' }))
     fireEvent.click(screen.getByRole('link', { name: 'Sobre mí', exact: true }))
     expect(screen.getByText('Mi Historia')).toBeTruthy()
     expect(screen.getByText('Certificaciones')).toBeTruthy()
@@ -91,6 +92,7 @@ describe('shared components', () => {
       <Navbar />,
     )
 
+    fireEvent.click(screen.getByRole('button', { name: 'Expandir navegación' }))
     const button = screen.getByRole('button', { name: 'Abrir menú' })
     expect(button.textContent).toContain('Menu')
     expect(button.getAttribute('aria-expanded')).toBe('false')
@@ -110,25 +112,34 @@ describe('shared components', () => {
     render(<Navbar />)
 
     const header = document.querySelector('.site-navigation') as HTMLElement
-    const toggle = screen.getByRole('button', { name: 'Contraer navegación' })
-    expect(screen.getByText('EnzoCipher')).toBeTruthy()
+    const toggle = screen.getByRole('button', { name: 'Expandir navegación' })
+    const navigation = document.querySelector('.navbar') as HTMLElement
+    expect(navigation.getAttribute('aria-label')).toBe('Navegación principal')
+    expect(screen.queryByText('EnzoCipher')).toBeNull()
+    expect(navigation.hidden).toBe(true)
+
+    fireEvent.click(toggle)
+    expect(header.classList.contains('is-collapsed')).toBe(false)
+    expect(navigation.hidden).toBe(false)
     expect(screen.getByRole('link', { name: 'Inicio' })).toBeTruthy()
     expect(screen.getByRole('link', { name: 'Sobre mí' })).toBeTruthy()
     expect(screen.getByRole('link', { name: 'Proyectos' })).toBeTruthy()
     expect(screen.getByRole('link', { name: 'Contacto' })).toBeTruthy()
-    expect(toggle.getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByRole('button', { name: 'Contraer navegación' }).getAttribute('aria-expanded')).toBe('true')
 
-    fireEvent.click(toggle)
+    fireEvent.click(screen.getByRole('button', { name: 'Contraer navegación' }))
     expect(header.classList.contains('is-collapsed')).toBe(true)
     const expandToggle = screen.getByRole('button', { name: 'Expandir navegación' })
     expect(expandToggle.getAttribute('aria-expanded')).toBe('false')
-    expect(expandToggle.getAttribute('aria-controls')).toBe(screen.getByRole('navigation', { name: 'Navegación principal' }).id)
-    expect(screen.getByRole('link', { name: 'Inicio' }).getAttribute('title')).toBe('Inicio')
-    expect(screen.getByRole('link', { name: 'Sobre mí' })).toBeTruthy()
+    expect(expandToggle.getAttribute('aria-controls')).toBe(navigation.id)
+    expect(navigation.hidden).toBe(true)
 
     fireEvent.click(expandToggle)
     expect(header.classList.contains('is-collapsed')).toBe(false)
     expect(screen.getByRole('button', { name: 'Contraer navegación' }).getAttribute('aria-expanded')).toBe('true')
+    expect(navigation.hidden).toBe(false)
+    expect(screen.getByRole('link', { name: 'Inicio' })).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Sobre mí' })).toBeTruthy()
   })
 
   it('cycles home hero fonts with mouse, click, and supported keyboard keys', () => {
